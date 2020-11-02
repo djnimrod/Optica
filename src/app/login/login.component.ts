@@ -1,18 +1,18 @@
-import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../_services/auth.service";
-import { TokenStorageService } from "../_services/token-storage.service";
-import { Token } from "@angular/compiler";
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
+import { TokenStorageService } from '../_services/token-storage.service';
+import { Token } from '@angular/compiler';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = "";
+  errorMessage = '';
   roles: string[] = [];
 
   constructor(

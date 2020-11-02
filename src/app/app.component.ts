@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { TokenStorageService } from "./_services/token-storage.service";
+import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from './_services/token-storage.service';
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   private roles: string;
@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username: string;
-  title = "angularJwtAuth";
+  title = 'angularJwtAuth';
   constructor(private tokenStorageService: TokenStorageService) {}
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes("ROLE_ADMIN");
-      this.showModeratorBoard = this.roles.includes("ROLE_MODERATOR");
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
     }
