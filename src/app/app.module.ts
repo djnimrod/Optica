@@ -27,7 +27,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     BoardModeratorComponent,
     BoardUserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
