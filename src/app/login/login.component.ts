@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+    } else {
+      console.log('no obtuvo Token');
     }
   }
   onSubmit(): void {
@@ -35,13 +37,14 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
+        console.log('data del login: ' + data);
       },
       (err) => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        console.log('login failed' + this.errorMessage);
       }
     );
-    console.log('Login Init ');
   }
 
   reloadPage(): void {
