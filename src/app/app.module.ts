@@ -15,6 +15,7 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     BoardUserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [authInterceptorProviders],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    authInterceptorProviders,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

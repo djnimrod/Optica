@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
@@ -17,8 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private tokenStorage: TokenStorageService,
-    private router: Router
+    private tokenStorage: TokenStorageService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +25,7 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     } else {
-      console.log('no obtuvo Token');
+      console.log('Error Tk');
     }
   }
   onSubmit(): void {
@@ -51,8 +49,6 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage(): void {
-    // window.location.reload();
-    this.router.navigate(['/profile']);
-    console.log('redirect a Profile :v ');
+    window.location.reload();
   }
 }
