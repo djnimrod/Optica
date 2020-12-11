@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +52,7 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     // window.location.reload();
-    console.log('recargando Pagina :v ');
+    this.router.navigate(['/profile']);
+    console.log('redirect a Profile :v ');
   }
 }
